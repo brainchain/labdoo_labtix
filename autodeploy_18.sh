@@ -1,12 +1,12 @@
 #!/bin/bash
 #version 0.63 by Javier Prieto Sabugo (javier.prieto@labdoo.org, Labdoo Hub München (Germany)) [09/2019]
 #version 0.62 by Javier Prieto Sabugo (javier.prieto@labdoo.org, Labdoo Hub München (Germany)) [09/2019]
-#Added the lines to modify the hostid if in the image is labdoo-0001xxxx instead of 00001xxxx, bacause Ralf in some images puts ist like that, so I have to adapt me
+#Added the lines to modify the hostid if in the image is labdoo-0001xxxx instead of 00001xxxx, because in some images Ralf puts it like that, so I have to adapt my
 #Simplified OS language selection
-#Added contents of v0.62 of the installcontetns
+#Added contents of v0.62 of the installcontents
 #[08/2019]
-#Simplification and adding the possibilitz to search images along the disk and to restore contents from a second USB HD
-#Same to search automaticallz where the contents are, and the install contents script
+#Simplification and adding the possibilities to search images in the disk and to restore the contents from a second USB HDD
+#Same to search automatically where the contents are and the install contents via the script
 #version 0.50 by Javier Prieto Sabugo (javier.prieto@labdoo.org, Labdoo Hub München (Germany)) [30/08]
 #Cosmetic Corrections
 #Modified to offer offer all the languages added in the v0.50 of install_labdoo_contents [ES / EN / SW / AR / HI / DE / FR / NE / ID / PT / ZH / RU / RO / IT / FA]
@@ -18,7 +18,7 @@ red_colour=$'\e[1;31m'
 yellow_colour=$'\e[1;33m'
 end_colour=$'\e[1;0m'
 
-#Size to leave free in the HD, when installing additional contents, we need to set a thereshold to guarantee that disk is not getting full
+#Size to leave free in the HD, when installing additional contents, we need to set a threshold to guarantee that disk is not getting full
 HDSIZELEAVEFREE=10000
 
 #
@@ -48,15 +48,15 @@ HDSIZELEAVEFREE=10000
 AVAILABLE_DISKS=$(fdisk -l | grep Disk | grep sd | awk -F',' '{print $1}')
 
 clear
-printf "${red_colour}Welcome to the LABDOO shreding and restoring tool v0.6! ${end_colour}
+printf "${red_colour}Welcome to the LABDOO shredding and restoring tool v0.6! ${end_colour}
 
 The following script will allow you in a very easy way to perform the steps to:
 1- Delete all the contents of the internal Hard Disk of the laptop where it is being executed
 2- Restore one of the Labdoo Prepared images in one of our main Languages (ES,EN,DE,FR) if available in your connected USB Hard Drive
 3- Set the hostname of the restored machine
-4.- If desired, automatically copy additional contents (in additional languages, downloaded from the Labdoo FTP) f available in your connected USB Hard Drive
+4.- If desired, automatically copy additional contents (in additional languages, downloaded from the Labdoo FTP) if available in your connected USB Hard Drive
 
-${yellow_colour}For this to success, we will need to gather some information before all the automatization starts${end_colour}
+${yellow_colour}For this to succeed, we will need to gather some information before all the automatization starts${end_colour}
 -Where the disks are located
 -what exact version do you want to restore
 -Hostname that you want to set (if you want, you can skip this and do it after the restore)
